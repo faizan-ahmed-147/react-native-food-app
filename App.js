@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import HomeScreen from './screens/HomeScreen'
 import OrderDilivery from './screens/OrderDilivery'
-import Resturant from './screens/Resturant'
+
 import MyTab from './navigation/Tab';
 const Stack = createNativeStackNavigator();
 
@@ -15,7 +15,7 @@ export default function App() {
         <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={"MyTab"}>
           <Stack.Screen name="HomeScreen" component={MyTab} />
           <Stack.Screen name="OrderDilivery" component={OrderDilivery} />
-          <Stack.Screen name="Resturant" component={Resturant} />
+
         </Stack.Navigator>
     </TailwindProvider>
       </NavigationContainer>
@@ -28,5 +28,5 @@ export default function App() {
 //     backgroundColor: '#fff',
 //     alignItems: 'center',
 //     justifyContent: 'center',
-//   },
+//   },z
 // });

@@ -1,24 +1,22 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
-
+import { useNavigation } from "@react-navigation/native";
 import { SIZES, FONTS, COLORS } from '../constants';
-
+import OrderDilivery from '../screens/OrderDilivery';
 
 const ResturantProduct = ({ menuData }) => {
-    // {menuData.map((currntElem)=>{
-        
-        
-        // const {id,name,photo,duration, menu1,description1,calories1,price1, menu2,description2,calories2,price2 } = curElem
+    const navigation = useNavigation()
+
     return (
 
         <>
 
-<ScrollView>
-            {menuData.map((curElem) => {
-                const {id,name,photo,duration, menu1,description1,calories1,price1, menu2,description2,calories2,price2 } = curElem
-                return (
-                    <>
-                            <TouchableOpacity key={curElem.id}
+            <ScrollView>
+                {menuData.map((curElem) => {
+                    const { id, name, photo, duration, menu1, description1, calories1, price1, menu2, description2, calories2, price2 } = curElem
+                    return (
+                        <>
+                            <TouchableOpacity key={id} onPress={()=>{navigation.navigate(OrderDilivery)}}
                                 style={{
                                     backgroundColor: "white",
                                     marginBottom: 20,
@@ -30,10 +28,11 @@ const ResturantProduct = ({ menuData }) => {
                                     style={{
                                         marginLeft: 8,
                                         color: COLORS.black,
-                                        ...FONTS.body1
+                                        fontWeight: "700",
+                                        fontSize: 30
                                     }}
                                 >
-                                   {name}
+                                    {name}
                                 </Text>
                                 <View
                                     style={{
@@ -66,13 +65,26 @@ const ResturantProduct = ({ menuData }) => {
                                 </View>
                                 <View style={{
                                     marginLeft: 10,
-                                    ...FONTS.body2,
+                                    fontWeight: "400",
+                                    fontSize: 20,
                                     marginTop: 17,
                                 }}>
-                                    <Text style={{ ...FONTS.body3 }}>Menu : <Text style={{color: "orange"}}>{menu1}</Text></Text>
-                                    <Text style={{ ...FONTS.body3 }}>Description : <Text style={{color: "orange"}}>{description1}</Text></Text>
-                                    <Text style={{ ...FONTS.body3 }}>Calories : <Text style={{color: "orange"}}>{calories1}</Text></Text>
-                                    <Text style={{ ...FONTS.body3 }}>Price : <Text style={{color: "orange"}}>{price1}</Text></Text>
+                                    <Text style={{
+                                        fontWeight: "400",
+                                        fontSize: 20,
+                                    }}>Menu : <Text style={{ color: "orange" }}>{menu1}</Text></Text>
+                                    <Text style={{
+                                        fontWeight: "400",
+                                        fontSize: 20,
+                                    }}>Description : <Text style={{ color: "orange" }}>{description1}</Text></Text>
+                                    <Text style={{
+                                        fontWeight: "400",
+                                        fontSize: 20,
+                                    }}>Calories : <Text style={{ color: "orange" }}>{calories1}</Text></Text>
+                                    <Text style={{
+                                        fontWeight: "400",
+                                        fontSize: 20,
+                                    }}>Price : <Text style={{ color: "orange" }}>{price1}</Text></Text>
 
                                 </View>
                                 <View style={{
@@ -80,10 +92,22 @@ const ResturantProduct = ({ menuData }) => {
                                     marginTop: 10,
 
                                 }}>
-                                    <Text style={{ ...FONTS.body3 }}>Menu : <Text style={{color: "orange"}}>{menu2}</Text></Text>
-                                    <Text style={{ ...FONTS.body3 }}>Description : <Text style={{color: "orange"}}>{description2}</Text></Text>
-                                    <Text style={{ ...FONTS.body3 }}>Calories : <Text style={{color: "orange"}}>{calories2}</Text></Text>
-                                    <Text style={{ ...FONTS.body3 }}>Price : <Text style={{color: "orange"}}>{price2}</Text></Text>
+                                    <Text style={{
+                                        fontWeight: "400",
+                                        fontSize: 20,
+                                    }}>Menu : <Text style={{ color: "orange" }}>{menu2}</Text></Text>
+                                    <Text style={{
+                                        fontWeight: "400",
+                                        fontSize: 20,
+                                    }}>Description : <Text style={{ color: "orange" }}>{description2}</Text></Text>
+                                    <Text style={{
+                                        fontWeight: "400",
+                                        fontSize: 20,
+                                    }}>Calories : <Text style={{ color: "orange" }}>{calories2}</Text></Text>
+                                    <Text style={{
+                                        fontWeight: "400",
+                                        fontSize: 20,
+                                    }}>Price : <Text style={{ color: "orange" }}>{price2}</Text></Text>
 
                                 </View>
                                 <TouchableOpacity
@@ -101,9 +125,9 @@ const ResturantProduct = ({ menuData }) => {
 
 
                             </TouchableOpacity>
-                    </>
-                )
-            })}
+                        </>
+                    )
+                })}
             </ScrollView>
 
 

@@ -7,12 +7,33 @@ import ResturantProduct from '../components/ResturantProduct';
 import Header from '../components/Header';
 import RestaurantData from './Data';
 
+
+const UniqueList = [...new Set(RestaurantData.map((curElem) => {
+  return curElem.name 
+})),"All"]
+
+console.log(UniqueList);
+
 const HomeScreen = () => {
+  
+
+
+  const [menuData, setMenuData] = useState(RestaurantData)
+  const [menuList, setMenyList] = useState(UniqueList)
 
 
 
-  const [ menuData, setMenuData]=useState(RestaurantData)
- 
+  const filterItem = (name) => {
+    if (name === "All"){
+      setMenuData(RestaurantData)
+      return
+    }
+    const updatedList = RestaurantData.filter((curElem) => {
+      return curElem.name === name
+    })
+    setMenuData(updatedList)
+  }
+
 
   const navigation = useNavigation()
   useLayoutEffect(() => {
@@ -26,7 +47,7 @@ const HomeScreen = () => {
     <SafeAreaView >
 
 
-      <View  className="flex-row bg-white pt-3">
+      <View className="flex-row bg-white pt-3">
         <Image source={{
           uri: "https://links.papareact.com/wru",
         }}
@@ -38,14 +59,14 @@ const HomeScreen = () => {
           <Text className="font-bold text-grey-400 text-xl">Current Location
             <AntDesign name="downcircle" size={24} color="#00CCBB" /></Text>
         </View>
-        
-        <AntDesign  name="user" size={40} color="#00CCBB" /></View>
-        <View>
 
-        </View>
+        <AntDesign name="user" size={40} color="#00CCBB" /></View>
+      <View>
 
-        <Header />
-        <ResturantProduct menuData={menuData}/>
+      </View>
+
+      <Header menuList={menuList} filterItem={filterItem} />
+      <ResturantProduct menuData={menuData} />
     </ SafeAreaView>
   )
 }

@@ -1,13 +1,31 @@
 import React from 'react'
-import { View, Text } from "react-native";
-import { SIZES } from '../constants';
+import { View, Text, TouchableOpacity, ScrollView,Image } from "react-native";
+import { COLORS } from '../constants';
 
 
-const Header = () => {
+// {menuList , filterItem}
+const Header = ({menuList , filterItem}) => {
   return (
-    <View>
-    <Text>Header</Text>
-    </View>
+    <>
+          <ScrollView horizontal={true}>
+        <View style={{display: "flex" , flexDirection: "row" ,  backgroundColor: "white"}} >  
+      
+   {
+      menuList.map((curElem)=>{ 
+         return( 
+        <TouchableOpacity style={{ backgroundColor: "orange", height: 40, margin: 10,  width: 70, borderRadius: 30, alignItems: "center", justifyContent: "center"}} onPress={()=>{filterItem(curElem)
+        }}>
+          {/* require("../assets/images/burger-restaurant.jpg") */}
+        
+
+        <Text >{curElem}</Text>     
+        </TouchableOpacity>
+         )
+        }) 
+      }
+      </View>
+      </ScrollView>
+    </>
   )
 }
 
