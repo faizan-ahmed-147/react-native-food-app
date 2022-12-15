@@ -3,6 +3,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { FontAwesome, AntDesign } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
 import { COLORS, icons } from '../constants';
+import OrderDilivery from '../screens/OrderDilivery';
 
 const Tab = createMaterialBottomTabNavigator();
 import React from 'react'
@@ -41,11 +42,11 @@ const MyTab = () => {
             />
             <Tab.Screen
                 name="Like"
-                component={HomeScreen}
+                component={OrderDilivery}
                 options={{
-                    tabBarLabel: 'Like',
+                    tabBarLabel: 'contact',
                     tabBarIcon: ({ }) => (
-                        <AntDesign name="like2" size={28} color="orange" />
+                        <AntDesign name="contacts" size={28} color="orange" />
                     ),
                 }}
             />

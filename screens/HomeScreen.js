@@ -57,10 +57,10 @@ const HomeScreen = () => {
         <View className="flex-1">
           <Text className="font-bold text-grey-400 text-xs">Deleviry Now!</Text>
           <Text className="font-bold text-grey-400 text-xl">Current Location
-            <AntDesign name="downcircle" size={24} color="#00CCBB" /></Text>
+            <AntDesign name="downcircle" size={24} color="orange" /></Text>
         </View>
 
-        <AntDesign name="user" size={40} color="#00CCBB" /></View>
+        <AntDesign name="user" size={40} color="orange" /></View>
       <View>
 
       </View>

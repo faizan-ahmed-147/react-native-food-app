@@ -16,14 +16,17 @@ const ResturantProduct = ({ menuData }) => {
                     const { id, name, photo, duration, menu1, description1, calories1, price1, menu2, description2, calories2, price2 } = curElem
                     return (
                         <>
-                            <TouchableOpacity key={id} onPress={()=>{navigation.navigate(OrderDilivery)}}
+                            <TouchableOpacity key={id} 
                                 style={{
                                     backgroundColor: "white",
                                     marginBottom: 20,
                                     borderRadius: 30
 
 
-                                }} >
+                                }} 
+                                onPress={() => navigation.navigate(OrderDilivery, {
+                                 
+                                })} >
                                 <Text
                                     style={{
                                         marginLeft: 8,
